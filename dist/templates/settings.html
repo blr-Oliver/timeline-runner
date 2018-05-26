@@ -1,0 +1,50 @@
+<div class="session-settings">
+  <div class="task-count row-1">
+    <label for="task-count" class="control-label">Number of tasks</label>
+    <div class="range-with-input">
+      <div class="range-box">
+        <input type="range" id="task-count-range" class="control" min="1" max="10" step="1" ng-model="taskList.length"/>
+      </div>
+      <div class="input-box">
+        <input type="number" id="task-count-input" class="control" min="1" max="10" step="1" ng-model="taskList.length"/>
+      </div>
+    </div>
+    
+  </div>
+  <div class="task-tokens row-2">
+    <ul class="task-token-list"><li
+      ng-repeat="i in 10 | sequence" class="task-token {{taskList[i].status}}"
+      ng-class="{ disabled: i >= taskList.length,
+                  editing: i === settings.editing }"
+      ng-click="settingsCtrl.startEdit(i)"
+      ng-bind="i + 1"></li></ul>
+  </div>
+  <div class="session-time row-3">
+    <label class="control-label">
+      <span class="session-time-text">Total session time <em ng-bind="settings.total"></em> minutes</span>
+    </label>
+  </div>
+</div>
+<div class="task-settings">
+  <div class="row-1">
+    <label for="task-name" class="control-label">Name of Task <em ng-bind="settings.editing !== null ? settings.editing + 1 : ''"></em></label>
+    <input id="task-name" type="text" class="control" ng-model="taskList[settings.editing].name" ng-disabled="settings.editing === null" />
+  </div>
+  <div class="row-2">
+    <label for="task-description" class="control-label">Description</label>
+    <textarea id="task-description" class="control task-description" ng-model="taskList[settings.editing].description" ng-disabled="settings.editing === null"></textarea>
+  </div>
+  <div class="row-3">
+    <label for="task-duration" class="control-label">Duration (minutes)</label>
+    <div class="range-with-input">
+      <div class="range-box">
+        <input type="range" id="task-duration-range" class="control" min="1" max="30" step="1" 
+          ng-model="taskList[settings.editing].duration" ng-disabled="settings.editing === null"/>
+      </div>
+      <div class="input-box">
+        <input type="number" id="task-duration-input" class="control" min="1" max="30" step="1"
+            ng-model="taskList[settings.editing].duration" ng-disabled="settings.editing === null"/>
+      </div>
+    </div>
+  </div>
+</div>

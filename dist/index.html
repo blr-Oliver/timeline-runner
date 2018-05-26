@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Timeline Runner</title>
+<!-- inject:css -->
+<link rel="stylesheet" href="css/bundle.css">
+<!-- endinject -->
+
+<script type="text/javascript" src="lib/angular.min.js"></script>
+
+<!-- inject:js -->
+<script src="js/bundle.min.js"></script>
+<!-- endinject -->
+
+</head>
+<body ng-app="main" ng-controller="TaskPlayerCtrl as taskPlayer">
+  <div class="ratio-ruler"></div>
+  <aside id="upper-panel">
+    <section id="progress" data-task-progress></section>
+  </aside>
+  <div id="lower-panel" ng-class="{open: model.settings.open}">
+    <section id="settings" data-settings></section>
+    <main id="display" data-display></main>
+  </div>
+  <nav id="controls" data-controls></nav>
+</body>
+</html>

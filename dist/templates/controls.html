@@ -1,0 +1,13 @@
+<div class="controls"><button
+  type="button" class="control player-button" title="Previous"
+    ng-click="player.previous()"><i class="player-icon icon-previous"></i></button><button
+  type="button" class="control player-button" title="Play" ng-class="{ active: model.display.progress.running }"
+    ng-click="player.play()"><i class="player-icon icon-play"></i></button><button
+  type="button" class="control player-button" title="Pause" ng-class="{ active: !model.display.progress.running && model.display.active !== null }"
+    ng-click="player.pause()"><i class="player-icon icon-pause"></i></button><button
+  type="button" class="control player-button" title="Stop" ng-class="{ active: !model.display.progress.running && model.display.active === null }"
+    ng-click="player.stop()"><i class="player-icon icon-stop"></i></button><button
+  type="button" class="control player-button" title="Next"
+    ng-click="player.next()"><i class="player-icon icon-next"></i></button><button
+  type="button" class="control player-button" title="Settings" ng-class="{ active: model.settings.open }"
+    ng-click="model.settings.open = !model.settings.open"><i class="player-icon icon-open"></i></button></div>

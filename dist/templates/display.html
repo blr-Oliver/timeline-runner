@@ -1,0 +1,14 @@
+<ul class="task-list">
+  <li ng-repeat="task in taskList" class="task-item {{task.status}}">
+    <i class="task-icon custom-glyph icon-task-{{task.status}}"></i><span class="task-item-label" ng-bind="task.name"></span>
+  </li>
+</ul>
+<div class="current-task">
+  <h1 class="current-task-name" ng-bind="taskList[display.active].name"></h1>
+  <div class="donut-container">
+    <donut data-value="progress.value / progress.limit" data-stroke="'hsl(140, 75%, 50%)'"></donut>
+    <div class="donut-text-wrap">
+      <p class="donut-text" ng-bind="taskList[display.active].description"></p>
+    </div>
+  </div>
+</div>

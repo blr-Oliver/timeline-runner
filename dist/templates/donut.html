@@ -1,0 +1,33 @@
+<svg class="donut" xmlns="http://www.w3.org/2000/svg" viewBox="-20 -20 40 40">
+  <filter id="dropshadow">
+    <feGaussianBlur in="SourceAlpha" stdDeviation="0.5"/>
+    <feOffset dx="-0.3" dy="0.3" result="offsetblur"/>
+    <feComponentTransfer>
+      <feFuncA type="linear" slope="0.5"/>
+    </feComponentTransfer>
+    <feMerge> 
+      <feMergeNode />
+      <feMergeNode in="SourceGraphic"/>
+    </feMerge>
+  </filter>
+
+  <filter id="innershadow">
+    <feComponentTransfer>
+      <feFuncA type="linear" slope="-1" intercept="1" />
+    </feComponentTransfer>
+    <feGaussianBlur stdDeviation="0.5"/>
+    <feOffset dx="0.3" dy="0.3"/>
+    <feComponentTransfer result="offsetBlur">
+      <feFuncA type="linear" slope="0.5"/>
+    </feComponentTransfer>
+    <feComposite in="SourceAlpha" in2="offsetBlur" operator="in" result="comp"/>
+    <feMerge>
+      <feMergeNode in="SourceGraphic"/>
+      <feMergeNode in="comp"/>
+    </feMerge>
+  </filter>
+  
+  <!-- r = 50/PI  -->
+  <circle id="donut-groove" cx="0" cy="0" r="15.915494309189533" />
+  <circle id="donut-body" cx="0" cy="0" r="15.915494309189533" style="stroke-dasharray: {{value * 100}} 120;" />
+</svg>

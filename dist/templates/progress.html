@@ -1,0 +1,9 @@
+<div class="progress-area">
+  <ul class="progress-bar" ng-class="{editable: model.settings.open}"><li
+    ng-repeat="item in progress.items track by $index"
+    class="progress-item {{taskList[$index].status}}"
+    ng-class="{editing: model.settings.editing === $index}"
+    style="width: {{item}}%;"><div
+      ng-if="$index === model.display.active" class="progress"
+      style="width: {{model.display.progress.value / model.display.progress.limit * 100}}%"></div></li></ul>
+</div>
